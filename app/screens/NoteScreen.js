@@ -37,9 +37,9 @@ const NoteScreen = ({ user, navigation }) => {
 
   const findGreet = () => {
     const hrs = new Date().getHours();
-    if (hrs === 0 || hrs < 12) return setGreet('Morning');
-    if (hrs === 1 || hrs < 17) return setGreet('Afternoon');
-    setGreet('Evening');
+    if (hrs === 0 || hrs < 12) return setGreet('Manha');
+    if (hrs === 1 || hrs < 18) return setGreet('Tarde');
+    setGreet('Noite');
   };
 
   useEffect(() => {
@@ -48,8 +48,36 @@ const NoteScreen = ({ user, navigation }) => {
 
   const reverseNotes = reverseData(notes);
 
-  const handleOnSubmit = async (title, desc) => {
-    const note = { id: Date.now(), title, desc, time: Date.now() };
+  const handleOnSubmit = async (
+    produtor,
+    localizacaoPropriedade,
+    dataAplicacao,
+    tamanhoArea,
+    cultura,
+    temperatura,
+    umidadeRelativaDoAr,
+    velocidadeVento,
+    volumeCalda,
+    larguraFaixa,
+    alturaVoo,
+    produtosUtilizados
+  ) => {
+    const note = {
+      id: Date.now(),
+      produtor,
+      localizacaoPropriedade,
+      dataAplicacao,
+      tamanhoArea,
+      cultura,
+      temperatura,
+      umidadeRelativaDoAr,
+      velocidadeVento,
+      volumeCalda,
+      larguraFaixa,
+      alturaVoo,
+      produtosUtilizados,
+      time: Date.now()
+    };
     const updatedNotes = [...notes, note];
     setNotes(updatedNotes);
     await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
@@ -67,7 +95,7 @@ const NoteScreen = ({ user, navigation }) => {
       return await findNotes();
     }
     const filteredNotes = notes.filter(note => {
-      if (note.title.toLowerCase().includes(text.toLowerCase())) {
+      if (note.produtor.toLowerCase().includes(text.toLowerCase())) {
         return note;
       }
     });
@@ -90,7 +118,7 @@ const NoteScreen = ({ user, navigation }) => {
       <StatusBar barStyle='dark-content' backgroundColor={colors.LIGHT} />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Text style={styles.header}>{`Good ${greet} ${user.name}`}</Text>
+          <Text style={styles.header}>{`Boa ${greet} ${user.name}`}</Text>
           {notes.length ? (
             <SearchBar
               value={searchQuery}
@@ -124,7 +152,7 @@ const NoteScreen = ({ user, navigation }) => {
                 styles.emptyHeaderContainer,
               ]}
             >
-              <Text style={styles.emptyHeader}>Add Notes</Text>
+              <Text style={styles.emptyHeader}>Nenhuma nota</Text>
             </View>
           ) : null}
         </View>

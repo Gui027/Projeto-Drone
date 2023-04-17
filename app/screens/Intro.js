@@ -25,11 +25,11 @@ const Intro = ({ onFinish }) => {
     <>
       <StatusBar hidden />
       <View style={styles.container}>
-        <Text style={styles.inputTitle}>Enter Your Name to Continue</Text>
+        <Text style={styles.inputTitle}>Insira seu nome para continuar</Text>
         <TextInput
           value={name}
           onChangeText={handleOnChangeText}
-          placeholder='Enter Name'
+          placeholder='Nome'
           style={styles.textInput}
         />
         {name.trim().length >= 3 ? (
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginBottom: 15,
   },
-  inputTitle: {
+  inputProdutor: {
     alignSelf: 'flex-start',
     paddingLeft: 25,
     marginBottom: 5,

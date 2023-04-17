@@ -9,13 +9,13 @@ import {
 import colors from '../misc/colors';
 
 const Note = ({ item, onPress }) => {
-  const { title, desc } = item;
+  const { produtor, localizacaoPropriedade } = item;
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text style={styles.title} numberOfLines={2}>
-        {title}
+      <Text style={styles.produtor} numberOfLines={2}>
+        {localizacaoPropriedade}
       </Text>
-      <Text numberOfLines={3}>{desc}</Text>
+      <Text style={styles.localizacaoPropriedade} numberOfLines={2}>{produtor}</Text>
     </TouchableOpacity>
   );
 };
@@ -29,10 +29,15 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 10,
   },
-  title: {
+  produtor: {
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 26,
     color: colors.LIGHT,
+  },
+  localizacaoPropriedade: {
+    fontWeight: 'bold',
+    fontSize: 17,
+    // color: colors.LIGHT,
   },
 });
 

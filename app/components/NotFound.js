@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <View style={[StyleSheet.absoluteFillObject, styles.container]}>
       <AntDesign name='frowno' size={90} color='black' />
-      <Text style={{ marginTop: 20, fontSize: 20 }}>Result Not Found</Text>
+      <Text style={{ marginTop: 20, fontSize: 20 }}>Nota Não Encontrada</Text>
     </View>
   );
 };
