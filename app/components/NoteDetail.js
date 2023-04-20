@@ -95,23 +95,121 @@ const NoteDetail = props => {
         align-items: center;
         align-content: center;
         align-self: center;
+        width: 400px;
+        margin-bottom: 20px; 
       }
+
       h1 {
         color: blue;
       }
 
+      h2 {
+        color: #998DAF;
+        margin-bottom: 0px;
+      }
+
       p {
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: 30px;
+        color: #554969;
+        font-weight: bold;
+        margin-top: 0px;
+      }
+
+      .pai-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        width: 800px;
+        color: 
+      }
+      
+      .card img {
+        display: block;
+        width: 100%;
+      }
+      
+      .card-body {
+        padding: 16px;
+      }
+      
+      .card-body h2 {
+        margin-top: 3px;
+        margin-bottom: 0px;
+      }
+
+      .card-body p {
+        font-size: 30px;
+        color: #554969;
+        font-weight: bold;
+        margin-top: 0px;
       }
     </style>
   </head>
   <body>
   <div class="imagem-container">
-    <img src="https://t3.ftcdn.net/jpg/03/31/44/70/360_F_331447075_LlfXoJm2qdHCjuhn3igNO8qVSbahgncr.jpg" alt="Logo">
+    <img src="https://i.postimg.cc/jqvsQ3M9/Captura-de-tela-2023-04-18-212100.png" alt="Logo">
   </div>
-    <h1>Olá, mundo!</h1>
-    <p>Este é um exemplo básico de um documento HTML com CSS embutido.</p>
+  <div class="pai-card">
+    <div class="card">
+      <div class="card-body">
+          <div class="value">
+            <h2>Produtor:</h2>
+            <p>${note.produtor}</p>
+          </div>
+          <div class="value">
+            <h2>Localização da Propriedade:</h2>
+            <p>${note.localizacaoPropriedade}</p>
+          </div>
+          <div class="value">
+            <h2>Data de Aplicação:</h2>
+            <p>${note.dataAplicacao}</p>
+          </div>
+          <div class="value">
+            <h2>Tamanho da Área:</h2>
+            <p>${note.tamanhoArea}</p>
+          </div>
+          <div class="value">
+            <h2>Cultura:</h2>
+            <p>${note.cultura}</p>
+          </div>
+          <div class="value">
+            <h2>Temperatura:</h2>
+            <p>${note.temperatura}</p>
+          </div>
+          <div class="value">
+            <h2>Umidade do Ar:</h2>
+            <p>${note.umidadeRelativaDoAr}</p>
+          </div>
+          <div class="value">
+            <h2>Velocidade do Vento:</h2>
+            <p>${note.velocidadeVento}</p>
+          </div>
+          <div class="value">
+            <h2>Volume de Calda/Há:</h2>
+            <p>${note.volumeCalda}</p>
+          </div>
+          <div class="value">
+            <h2>Largura de Faixa:</h2>
+            <p>${note.larguraFaixa}</p>
+          </div>
+          <div class="value">
+            <h2>Altura de Voo:</h2>
+            <p>${note.alturaVoo}</p>
+          </div>
+          <div class="value">
+            <h2>Produtos Utilizados:</h2>
+            <p>${note.produtosUtilizados}</p>
+          </div>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
   `
