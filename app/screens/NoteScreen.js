@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useState } from 'react';
 import {
   View,
+  Image,
   StyleSheet,
   Text,
   StatusBar,
@@ -116,14 +117,20 @@ const NoteScreen = ({ user, navigation }) => {
   return (
     <>
       <StatusBar barStyle='dark-content' backgroundColor={colors.LIGHT} />
+      <View style={styles.imageContainer}>
+        <Image
+          style={styles.image}
+          source={require('../../assets/innovagro-png.png')}
+        />
+      </View>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <Text style={styles.header}>{`Boa ${greet} ${user.name}`}</Text>
+          {/* <Text style={styles.header}>{`Boa ${greet} ${user.name}`}</Text> */}
           {notes.length ? (
             <SearchBar
               value={searchQuery}
               onChangeText={handleOnSearchInput}
-              containerStyle={{ marginVertical: 15 }}
+              containerStyle={{ marginVertical: 22 }}
               onClear={handleOnClear}
             />
           ) : null}
@@ -133,11 +140,12 @@ const NoteScreen = ({ user, navigation }) => {
           ) : (
             <FlatList
               data={reverseNotes}
-              numColumns={2}
-              columnWrapperStyle={{
-                justifyContent: 'space-between',
-                marginBottom: 15,
-              }}
+              // numColumns={1}
+              // columnWrapperStyle={{
+              //   justifyContent: 'space-between',
+              //   marginBottom: 15,
+              // }}
+              ItemSeparatorComponent={() => <View style={{height: 10}} />}
               keyExtractor={item => item.id.toString()}
               renderItem={({ item }) => (
                 <Note onPress={() => openNote(item)} item={item} />
@@ -198,6 +206,16 @@ const styles = StyleSheet.create({
     right: 15,
     bottom: 50,
     zIndex: 1,
+  },
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: -30
+    // height: 150,
+  },
+  image: {
+    width: 250,
+    resizeMode: 'contain',
   },
 });
 

@@ -59,25 +59,6 @@ const NoteDetail = props => {
     );
   };
 
-  // const html = `
-  //     <html>
-  //       <body>
-  //         <h1> Produtor: ${note.produtor} </h1>
-  //         <h1> Localização da Propriedade: ${note.localizacaoPropriedade} </h1>
-  //         <h1> Data de Aplicação: ${note.dataAplicacao} </h1>
-  //         <h1> Tamanho da Área: ${note.tamanhoArea} </h1>
-  //         <h1> Cultura: ${note.cultura} </h1>
-  //         <h1> Temperatura: ${note.temperatura} </h1>
-  //         <h1> Umidade do Ar: ${note.umidadeRelativaDoAr} </h1>
-  //         <h1> Velocidade do Vento: ${note.velocidadeVento} </h1>
-  //         <h1> Volume de Calda/Há: ${note.volumeCalda} </h1>
-  //         <h1> Largura de Faixa: ${note.larguraFaixa} </h1>
-  //         <h1> Altura de Voo: ${note.alturaVoo} </h1>
-  //         <h1> Produtos Utilizados: ${note.produtosUtilizados} </h1>
-  //       </body>
-  //     </html>
-  //   `;
-
   const html = `
   <html>
   <head>
@@ -284,18 +265,30 @@ const NoteDetail = props => {
             ? `Atualizado em ${formatDate(note.time)}`
             : `Criado em ${formatDate(note.time)}`}
         </Text>
+        <Text style={styles.produtorTitle}>Produtor:</Text>
         <Text style={styles.produtor}>{note.produtor}</Text>
-        <Text style={styles.localizacaoPropriedade}>{note.localizacaoPropriedade}</Text>
-        <Text style={styles.dataAplicacao}>{note.dataAplicacao}</Text>
-        <Text style={styles.tamanhoArea}>{note.tamanhoArea}</Text>
-        <Text style={styles.cultura}>{note.cultura}</Text>
-        <Text style={styles.temperatura}>{note.temperatura}</Text>
-        <Text style={styles.umidadeRelativaDoAr}>{note.umidadeRelativaDoAr}</Text>
-        <Text style={styles.velocidadeVento}>{note.velocidadeVento}</Text>
-        <Text style={styles.volumeCalda}>{note.volumeCalda}</Text>
-        <Text style={styles.larguraFaixa}>{note.larguraFaixa}</Text>
-        <Text style={styles.alturaVoo}>{note.alturaVoo}</Text>
-        <Text style={styles.produtosUtilizados}>{note.produtosUtilizados}</Text>
+        <Text style={styles.produtorTitle}>Localização da Propriedade:</Text>
+        <Text style={styles.produtor}>{note.localizacaoPropriedade}</Text>
+        <Text style={styles.produtorTitle}>Data da Aplicação:</Text>
+        <Text style={styles.produtor}>{note.dataAplicacao}</Text>
+        <Text style={styles.produtorTitle}>Tamanho da Área:</Text>
+        <Text style={styles.produtor}>{note.tamanhoArea}</Text>
+        <Text style={styles.produtorTitle}>Cultura:</Text>
+        <Text style={styles.produtor}>{note.cultura}</Text>
+        <Text style={styles.produtorTitle}>Temperatura:</Text>
+        <Text style={styles.produtor}>{note.temperatura}</Text>
+        <Text style={styles.produtorTitle}>Umidade Relativa do Ar:</Text>
+        <Text style={styles.produtor}>{note.umidadeRelativaDoAr}</Text>
+        <Text style={styles.produtorTitle}>Velocidade do Vento:</Text>
+        <Text style={styles.produtor}>{note.velocidadeVento}</Text>
+        <Text style={styles.produtorTitle}>Volume de Calda:</Text>
+        <Text style={styles.produtor}>{note.volumeCalda}</Text>
+        <Text style={styles.produtorTitle}>Largura de Faixa:</Text>
+        <Text style={styles.produtor}>{note.larguraFaixa}</Text>
+        <Text style={styles.produtorTitle}>Altura de Voô:</Text>
+        <Text style={styles.produtor}>{note.alturaVoo}</Text>
+        <Text style={styles.produtorTitle}>Produtos Utilizados:</Text>
+        <Text style={styles.produtor}>{note.produtosUtilizados}</Text>
       </ScrollView>
       <View style={styles.btnContainer}>
         <RoundIconBtn
@@ -329,11 +322,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   produtor: {
-    fontSize: 30,
-    color: colors.PRIMARY,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    fontSize: 22,
+    opacity: 0.6,
+    marginBottom: 6,
+  },
+  produtorTitle: {
+    fontWeight: 600,
+    color: "#998DAF",
+    fontSize: 18,
+    opacity: 0.6,
   },
   localizacaoPropriedade: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
+  localizacaoPropriedadeTitle: {
     fontSize: 20,
     opacity: 0.6,
   },
@@ -341,7 +345,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     opacity: 0.6,
   },
+  dataAplicacaoTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   tamanhoArea: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
+  tamanhoAreaTitle: {
     fontSize: 20,
     opacity: 0.6,
   },
@@ -349,7 +361,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     opacity: 0.6,
   },
+  culturaTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   temperatura: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
+  temperaturaTitle: {
     fontSize: 20,
     opacity: 0.6,
   },
@@ -357,7 +377,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     opacity: 0.6,
   },
+  umidadeRelativaDoArTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   velocidadeVento: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
+  velocidadeVentoTitle: {
     fontSize: 20,
     opacity: 0.6,
   },
@@ -365,7 +393,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     opacity: 0.6,
   },
+  volumeCaldaTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   larguraFaixa: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
+  larguraFaixaTitle: {
     fontSize: 20,
     opacity: 0.6,
   },
@@ -373,11 +409,24 @@ const styles = StyleSheet.create({
     fontSize: 20,
     opacity: 0.6,
   },
+  alturaVooTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   produtosUtilizados: {
     fontSize: 20,
     opacity: 0.6,
   },
+  produtosUtilizadosTitle: {
+    fontSize: 20,
+    opacity: 0.6,
+  },
   time: {
+    textAlign: 'right',
+    fontSize: 12,
+    opacity: 0.5,
+  },
+  timeTitle: {
     textAlign: 'right',
     fontSize: 12,
     opacity: 0.5,
@@ -387,6 +436,11 @@ const styles = StyleSheet.create({
     right: 15,
     bottom: 50,
   },
+  btnContainerTitle: {
+    position: 'absolute',
+    right: 15,
+    bottom: 50,
+  }
 });
 
 export default NoteDetail;

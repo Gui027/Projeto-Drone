@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ndp-note",
+    "name": "Innovagro",
     "slug": "ndp-note",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -33,6 +33,7 @@
       "eas": {
         "projectId": "e1fb3b03-1fe5-4ef4-b5d4-4785fed2ab5a"
       }
-    }
+    },
+    "owner": "oficialcastro"
   }
 }
