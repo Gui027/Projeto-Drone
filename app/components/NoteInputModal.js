@@ -8,6 +8,8 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  KeyboardAvoidingView,
+  ScrollView
 } from 'react-native';
 import colors from '../misc/colors';
 import RoundIconBtn from './RoundIconBtn';
@@ -145,99 +147,103 @@ const NoteInputModal = ({ visible, onClose, onSubmit, note, isEdit }) => {
 
   return (
     <>
-      <StatusBar hidden />
-      <Modal visible={visible} animationType='fade'>
-        <View style={styles.container}>
-          <TextInput
-            value={produtor}
-            onChangeText={text => handleOnChangeText(text, 'produtor')}
-            placeholder='Produtor'
-            style={[styles.input, styles.produtor]}
-          />
-          <TextInput
-            value={localizacaoPropriedade}
-            multiline
-            placeholder='Localização da Propriedade'
-            style={[styles.input, styles.localizacaoPropriedade]}
-            onChangeText={text => handleOnChangeText(text, 'localizacaoPropriedade')}
-          />
-          <TextInput
-            value={dataAplicacao}
-            multiline
-            placeholder='Data de Aplicação'
-            style={[styles.input, styles.dataAplicacao]}
-            onChangeText={text => handleOnChangeText(text, 'dataAplicacao')}
-          />
-          <TextInput
-            value={tamanhoArea}
-            multiline
-            placeholder='Tamanho da Área'
-            style={[styles.input, styles.tamanhoArea]}
-            onChangeText={text => handleOnChangeText(text, 'tamanhoArea')}
-          />
-          <TextInput
-            value={cultura}
-            multiline
-            placeholder='Cultura'
-            style={[styles.input, styles.cultura]}
-            onChangeText={text => handleOnChangeText(text, 'cultura')}
-          />
-          <TextInput
-            value={temperatura}
-            multiline
-            placeholder='Temperatura'
-            style={[styles.input, styles.temperatura]}
-            onChangeText={text => handleOnChangeText(text, 'temperatura')}
-          />
-          <TextInput
-            value={umidadeRelativaDoAr}
-            multiline
-            placeholder='Umidade Relativa do Ar'
-            style={[styles.input, styles.umidadeRelativaDoAr]}
-            onChangeText={text => handleOnChangeText(text, 'umidadeRelativaDoAr')}
-          />
-          <TextInput
-            value={velocidadeVento}
-            multiline
-            placeholder='Velocidade do Vento'
-            style={[styles.input, styles.velocidadeVento]}
-            onChangeText={text => handleOnChangeText(text, 'velocidadeVento')}
-          />
-          <TextInput
-            value={volumeCalda}
-            multiline
-            placeholder='Volume de Calda'
-            style={[styles.input, styles.volumeCalda]}
-            onChangeText={text => handleOnChangeText(text, 'volumeCalda')}
-          />
-          <TextInput
-            value={larguraFaixa}
-            multiline
-            placeholder='Largura de Faixa'
-            style={[styles.input, styles.larguraFaixa]}
-            onChangeText={text => handleOnChangeText(text, 'larguraFaixa')}
-          />
-          <TextInput
-            value={alturaVoo}
-            multiline
-            placeholder='Altura de Voo'
-            style={[styles.input, styles.alturaVoo]}
-            onChangeText={text => handleOnChangeText(text, 'alturaVoo')}
-          />
-          <TextInput
-            value={produtosUtilizados}
-            multiline
-            placeholder='Produtos Utilizados'
-            style={[styles.input, styles.produtosUtilizados]}
-            onChangeText={text => handleOnChangeText(text, 'produtosUtilizados')}
-          />
-          <View style={styles.btnContainer}>
-            <RoundIconBtn
-              size={15}
-              antIconName='check'
-              onPress={handleSubmit}
-            />
-            {/* {
+      <KeyboardAvoidingView
+        behavior={Platform.OS == "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={70}>
+        <StatusBar hidden />
+        <Modal visible={visible} animationType='fade'>
+          <ScrollView style={{ width: "100%" }}>
+            <View style={styles.container}>
+              <TextInput
+                value={produtor}
+                onChangeText={text => handleOnChangeText(text, 'produtor')}
+                placeholder='Produtor'
+                style={[styles.input, styles.produtor]}
+              />
+              <TextInput
+                value={localizacaoPropriedade}
+                multiline
+                placeholder='Localização da Propriedade'
+                style={[styles.input, styles.localizacaoPropriedade]}
+                onChangeText={text => handleOnChangeText(text, 'localizacaoPropriedade')}
+              />
+              <TextInput
+                value={dataAplicacao}
+                multiline
+                placeholder='Data de Aplicação'
+                style={[styles.input, styles.dataAplicacao]}
+                onChangeText={text => handleOnChangeText(text, 'dataAplicacao')}
+              />
+              <TextInput
+                value={tamanhoArea}
+                multiline
+                placeholder='Tamanho da Área'
+                style={[styles.input, styles.tamanhoArea]}
+                onChangeText={text => handleOnChangeText(text, 'tamanhoArea')}
+              />
+              <TextInput
+                value={cultura}
+                multiline
+                placeholder='Cultura'
+                style={[styles.input, styles.cultura]}
+                onChangeText={text => handleOnChangeText(text, 'cultura')}
+              />
+              <TextInput
+                value={temperatura}
+                multiline
+                placeholder='Temperatura'
+                style={[styles.input, styles.temperatura]}
+                onChangeText={text => handleOnChangeText(text, 'temperatura')}
+              />
+              <TextInput
+                value={umidadeRelativaDoAr}
+                multiline
+                placeholder='Umidade Relativa do Ar'
+                style={[styles.input, styles.umidadeRelativaDoAr]}
+                onChangeText={text => handleOnChangeText(text, 'umidadeRelativaDoAr')}
+              />
+              <TextInput
+                value={velocidadeVento}
+                multiline
+                placeholder='Velocidade do Vento'
+                style={[styles.input, styles.velocidadeVento]}
+                onChangeText={text => handleOnChangeText(text, 'velocidadeVento')}
+              />
+              <TextInput
+                value={volumeCalda}
+                multiline
+                placeholder='Volume de Calda'
+                style={[styles.input, styles.volumeCalda]}
+                onChangeText={text => handleOnChangeText(text, 'volumeCalda')}
+              />
+              <TextInput
+                value={larguraFaixa}
+                multiline
+                placeholder='Largura de Faixa'
+                style={[styles.input, styles.larguraFaixa]}
+                onChangeText={text => handleOnChangeText(text, 'larguraFaixa')}
+              />
+              <TextInput
+                value={alturaVoo}
+                multiline
+                placeholder='Altura de Voo'
+                style={[styles.input, styles.alturaVoo]}
+                onChangeText={text => handleOnChangeText(text, 'alturaVoo')}
+              />
+              <TextInput
+                value={produtosUtilizados}
+                multiline
+                placeholder='Produtos Utilizados'
+                style={[styles.input, styles.produtosUtilizados]}
+                onChangeText={text => handleOnChangeText(text, 'produtosUtilizados')}
+              />
+              <View style={styles.btnContainer}>
+                <RoundIconBtn
+                  size={15}
+                  antIconName='check'
+                  onPress={handleSubmit}
+                />
+                {/* {
               produtor.trim() ||
                 localizacaoPropriedade.trim() ||
                 dataAplicacao.trim() ||
@@ -258,12 +264,14 @@ const NoteInputModal = ({ visible, onClose, onSubmit, note, isEdit }) => {
                     onPress={closeModal}
                   />
                 ) : null} */}
-          </View>
-        </View>
-        <TouchableWithoutFeedback onPress={handleModalClose}>
-          <View style={[styles.modalBG, StyleSheet.absoluteFillObject]} />
-        </TouchableWithoutFeedback>
-      </Modal>
+              </View>
+            </View>
+            <TouchableWithoutFeedback onPress={handleModalClose}>
+              <View style={[styles.modalBG, StyleSheet.absoluteFillObject]} />
+            </TouchableWithoutFeedback>
+          </ScrollView>
+        </Modal>
+      </KeyboardAvoidingView>
     </>
   );
 };
