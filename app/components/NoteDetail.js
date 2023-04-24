@@ -77,7 +77,8 @@ const NoteDetail = props => {
         align-content: center;
         align-self: center;
         width: 400px;
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
+        margin-top: -20px;
       }
 
       h1 {
@@ -85,12 +86,12 @@ const NoteDetail = props => {
       }
 
       h2 {
+        font-size: 15px;
         color: #998DAF;
         margin-bottom: 0px;
       }
 
       p {
-        font-size: 30px;
         color: #554969;
         font-weight: bold;
         margin-top: 0px;
@@ -107,7 +108,7 @@ const NoteDetail = props => {
         border-radius: 30px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         overflow: hidden;
-        width: 800px;
+        width: 450px;
         color: 
       }
       
@@ -117,19 +118,21 @@ const NoteDetail = props => {
       }
       
       .card-body {
-        padding: 16px;
+        // display: flex;
+        // flex-direction: column;
+        padding: 10px;
       }
       
       .card-body h2 {
+        font-size: 16px;
         margin-top: 3px;
         margin-bottom: 0px;
       }
 
       .card-body p {
-        font-size: 30px;
+        font-size: 23px;
         color: #554969;
         font-weight: bold;
-        margin-top: 0px;
       }
     </style>
   </head>
