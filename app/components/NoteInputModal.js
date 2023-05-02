@@ -282,10 +282,11 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   input: {
-    borderBottomWidth: 2,
-    borderBottomColor: colors.PRIMARY,
+    borderWidth: 1,
+    borderColor: "#5C5C5C",
     fontSize: 20,
     color: colors.DARK,
+    borderRadius: 10
   },
   produtor: {
     height: 40,
@@ -321,6 +322,10 @@ const styles = StyleSheet.create({
     height: 40,
     marginBottom: 15,
     fontWeight: 'bold',
+  },
+  placeholder: {
+    marginLeft: 20, // Adicione o marginLeft aqui
+    color: "#A9A9A9", // Defina a cor do placeholder, se necessário
   },
   velocidadeVento: {
     height: 40,
