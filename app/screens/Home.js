@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     StyleSheet,
@@ -12,8 +12,26 @@ import {
 import colors from '../misc/colors';
 import { useNavigation } from '@react-navigation/native';
 
-const Home = ({ user }) => {
+const Home = ({ route, onFinish }) => {
     const navigation = useNavigation();
+
+    const [name, setName] = useState('');
+
+    useEffect(() => { // buscando o valor do AsyncStorage ao carregar a tela
+        if (route.params?.user?.name) {
+            setUserName(route.params.user.name);
+        } else {
+            const getUser = async () => {
+                const userString = await AsyncStorage.getItem('user');
+                const user = JSON.parse(userString);
+                if (user && user.name) {
+                    setName(user.name);
+                }
+            };
+            getUser();
+        }
+    }, [route.params?.user]);
+
 
     const handlePressButton = () => {
         navigation.navigate('NoteScreen');
@@ -27,7 +45,7 @@ const Home = ({ user }) => {
         <>
             <StatusBar hidden />
             <View style={styles.container}>
-                <Text style={styles.inputTitle}>Bem vindo, [NOME]</Text>
+                <Text style={styles.inputTitle}>Bem vindo, {name}</Text>
                 <TouchableOpacity style={styles.button} onPress={handlePressButton}>
                     <Text style={styles.buttonText}>Notas</Text>
                 </TouchableOpacity>
